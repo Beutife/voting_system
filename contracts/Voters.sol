@@ -16,7 +16,18 @@ contract VotingSystem{
    mapping (uint => Canditate) public candidates;
    mapping(address => bool) public hasVoted;
 
-   
+   enum ElectionState{Notstarter, Ongoing, Ended}
+   ElectionState public state;
 
+   constructor(){
+    admin = msg.sender;
+    state = ElectionState
+   }
+   
+   modifier onlyAdmin(){
+    require(msg.sender == admin, "Not Admin")
+   }
+
+   function addCandidate()
 
 }
