@@ -59,7 +59,11 @@ contract VotingSystem{
      uint winnerId = 0;
 
      for(uint i=1; i <= candidatesCount; i++){
-        
+        if(candidates[i].voteCount > winningVoteCount){
+            winningVoteCount = candidates[i].voteCount;
+            winnerId =i;
+        }
      }
+     winnerName = candidates[winnerId].name;
    }
 }
